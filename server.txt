@@ -1,0 +1,131 @@
+// import express from 'express';
+// import dotenv from 'dotenv';
+// import connectDB from './database/db.js';
+// import cookieParser from 'cookie-parser';
+
+// dotenv.config();
+
+// const app = express();
+// const port =process.env.PORT || 4000;
+
+// const admin = express.Router();
+// const student = express.Router();
+
+// app.use('/api/admin',admin);
+// app.use('/api/student', student);
+
+// // const middleware1 =  (req, res, next) => {
+// //     console.log("Middleware, 1");
+// //     res.send("This is the Middleware 1.")
+// //     next();
+// // };
+// const middleware1 =  (obj) => {
+//     return (req, res, next) =>{
+//         console.log("Middleware, 1");
+//         req.name = obj.name;
+//         req.age = obj.age;
+//         next();
+//     };
+// };
+// const middleware2 =  (req, res, next) => {
+//     console.log("Middleware, 2");
+//     next();
+// };
+// // const middleware4 =  (req, res, next) => {
+// //     console.log("Middleware, 4");
+// //     next();
+// // };
+
+
+// app.use(middleware1({name:"GoDLAangel", age:24}));
+// app.use(middleware2);
+// // app.use(middleware3);
+// // app.use(middleware4);
+
+
+// admin.get('/home',(req,res,next)=>{
+//     // console.log(req.baseUrl);
+//     // console.log(req.originalUrl);
+//     // console.log(req.path);
+//     // res.clearCookie("name");
+//     // console.log(req.hostname);
+//    // console.log(req.ip);
+//     //console.log(req.method);
+//     //console.log(req.protocol);
+//     //console.log(req.secure);
+//     //console.log(req.accepts);
+//     //console.log(req.get("Content-Type"));
+//     //console.log(req.get("Accept"));
+//     //res.status(200).json({ name: "Shivam", age: 24});
+//     res.sendStatus(200);
+//     //res.send("Admins Home page...");
+// });
+
+// student.get('/home',(req,res,next)=>{
+//     console.log(req.baseUrl);
+//     console.log(req.originalUrl);
+//     console.log(req.path);
+//     res.send("Students home route.");
+//     next();
+// });
+
+// app.get('/api/home',(req,res,next)=>{
+//     console.log(req.baseUrl);
+//     console.log(req.originalUrl);
+//     console.log(req.path);
+//     res.send("Common home route...");
+//     next();
+// });
+
+// // Middleware
+// app.use(cookieParser);
+// app.use(express.json());
+
+// // Connect to database
+// connectDB();
+
+
+// app.get('/',(req,res)=>{
+//     res.send("<h1>This is the Server.</h1>");
+// });
+
+
+// // get Post put patch delete
+// app.get('/example', (req,res,next) =>{
+//     console.log(req.name);
+//     console.log(req.age);
+//     res.send("This is the Get Method.");
+// });
+
+// app.post('/example', (req,res,next) =>{
+//     res.send("This is the post Method.");
+// });
+
+// app.put('/example', (req,res,next) =>{
+//     res.send("This is the Put Method.");
+// });
+
+// app.patch('/example', (req,res,next) =>{
+//     res.send("This is the patch Method.");
+// });
+
+// app.delete('/example', (req,res,next) =>{
+//     res.send("This is the Delete Method.");
+// });
+
+// // req.body, req.query and many method we explore
+// app.post('/api/user', (req,res) =>{
+//     const { name, email } = req.body;
+//     res.send(`User: ${name}, Email: ${email}`);
+// });
+
+// app.post('/api/user/:userId', (req,res) =>{
+//     const { userId } = req.params;
+//     console.log(req.query);
+//     res.send(`UserId: ${userId} details.`);
+// });
+
+// // start the app
+// app.listen(port,()=>{
+//     console.log(`Server is running on the port:${port}`);
+// });
